@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import React, { useEffect, useState } from "react"
 import { SketchPicker } from "react-color"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.scss"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
