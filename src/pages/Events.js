@@ -1,17 +1,14 @@
-import "./styles/Events.scss"
-
+import moment from "moment"
+import React, { useEffect, useState } from "react"
 import { Calendar, momentLocalizer } from "react-big-calendar"
 import { Col, Container, Row } from "react-bootstrap"
-import React, { useEffect, useState } from "react"
-
-import Client from "../Contentful"
-import { FluidContainer } from "../components/styles/FluidContainer"
 import Hero from "../components/Hero"
+import { FluidContainer } from "../components/styles/FluidContainer"
 import { StyledAnchor } from "../components/styles/StyledAction"
 import { StyledHeader } from "../components/styles/StyledHeader"
 import { StyledParagraph } from "../components/styles/StyledParagraph"
 import Title from "../components/Title"
-import moment from "moment"
+import "./styles/Events.scss"
 
 // import "react-big-calendar/lib/css/react-big-calendar.css"
 
@@ -20,28 +17,29 @@ export default function Events() {
 	const [selectedEvent, setSelectedEvent] = useState(null)
 
 	const getEvents = async () => {
-		try {
-			let response = await Client.getEntries({
-				content_type: "event",
-				order: "fields.startDateTime",
-			})
-			let events = []
-			response.items.forEach((event) => {
-				events.push({
-					title: event.fields.title,
-					description: event.fields.description,
-					start: moment(event.fields.startDateTime).toDate(),
-					end: moment(event.fields.endDateTime).toDate(),
-					rawStart: event.fields.startDateTime,
-					rawEnd: event.fields.endDateTime,
-					location: event.fields.location,
-					formLink: event.fields.formLink,
-				})
-			})
-			setEventsList(events)
-		} catch (error) {
-			console.log(error)
-		}
+		setEventsList([])
+		// try {
+		// 	let response = await Client.getEntries({
+		// 		content_type: "event",
+		// 		order: "fields.startDateTime",
+		// 	})
+		// 	let events = []
+		// 	response.items.forEach((event) => {
+		// 		events.push({
+		// 			title: event.fields.title,
+		// 			description: event.fields.description,
+		// 			start: moment(event.fields.startDateTime).toDate(),
+		// 			end: moment(event.fields.endDateTime).toDate(),
+		// 			rawStart: event.fields.startDateTime,
+		// 			rawEnd: event.fields.endDateTime,
+		// 			location: event.fields.location,
+		// 			formLink: event.fields.formLink,
+		// 		})
+		// 	})
+		// 	setEventsList(events)
+		// } catch (error) {
+		// 	console.log(error)
+		// }
 	}
 
 	useEffect(() => {
