@@ -1,13 +1,10 @@
-import "./styles/Home.scss"
-
-import { Col, Container, Row } from "react-bootstrap"
-
-import { Link } from "react-scroll"
 import React from "react"
-import { StyledHeader } from "../components/styles/StyledHeader"
+import { Col, Container, Row } from "react-bootstrap"
 import { StyledLink } from "../components/styles/StyledAction"
+import { StyledHeader } from "../components/styles/StyledHeader"
 import { StyledParagraph } from "../components/styles/StyledParagraph"
 import Title from "../components/Title"
+import "./styles/Home.scss"
 
 export default function Home() {
 	return (
